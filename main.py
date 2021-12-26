@@ -8,12 +8,12 @@ def bfs(graph, root):
         vertex = queue.popleft()
         for neighbour in graph[vertex]: 
             if neighbour not in visited: 
-                visited.add(neighbour)
-                
+                visited.add(neighbour)               
                 queue.append(neighbour)
-                g.edge(str(vertex + 1), str(neighbour + 1))
+                g.edge(str(vertex + 1), str(neighbour + 1)) # Добавление ребра в каркас
 
-f = open('../graph_carc_input.txt', 'r')
+# Считывание графа. Форма входных данных — матрица смежности (в первой строке количество вершин графа)
+f = open('graph_carc_input.txt', 'r')
 n = int(f.readline())
 graph = {x:[] for x in range(n)}
 
@@ -26,7 +26,9 @@ for lines in f:
         j += 1
     i += 1
 
+# Создание нового графа — каркаса исходного
 g = graphviz.Graph('G')
 bfs(graph, 0)
 
+# Визуализация с помощью graphviz
 g.view()
