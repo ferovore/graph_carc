@@ -31,4 +31,4 @@ g = graphviz.Graph('G')
 bfs(graph, 0)
 
 # Визуализация с помощью graphviz
-g.view()
+g.view(graph_carc.pdf)
